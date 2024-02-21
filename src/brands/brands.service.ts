@@ -3,18 +3,13 @@ import { v4 as uuid } from "uuid";
 import { CreateBrandDto } from './dto/create-brand.dto';
 import { UpdateBrandDto } from './dto/update-brand.dto';
 import { Brand } from './entities/brand.entity';
+import { SeedService } from '../seed/seed.service';
 
 @Injectable()
 export class BrandsService {
-
-  private br
-  private brands : Brand [] =[
-    {
-      id: uuid(),
-      name: 'Toyota', 
-      createdAt : new Date().getTime()
-    }
-  ]
+  constructor(
+  ){}
+  private brands : Brand [] =[]
   create(createBrandDto: CreateBrandDto) {
     
     const {name} = createBrandDto;
@@ -55,5 +50,9 @@ export class BrandsService {
     let brandDB = this.findOne(id);
     this.brands = this.brands.filter(brand => brand.id !== id);
     return this.brands
+  }
+
+  fillCarsWithSeedData(brands:Brand[]){
+    this.brands= brands
   }
 }
