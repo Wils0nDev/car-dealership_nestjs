@@ -22,11 +22,11 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## Descripción
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+[Nest](https://github.com/nestjs/nest) repositorio de inicio de TypeScript de framework.
 
-## Installation
+## Instalción
 
 ```bash
 $ npm install
@@ -45,29 +45,38 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+## Temas 
+### Archivos
+- eslintrc : es un archivo de configuración de Linting, entonces es un archivo de configuración de buenas practicas para que nuestro código siga ciertas reglas o estandares
 
-```bash
-# unit tests
-$ npm run test
+- .prettierrc : ayuda a "eslintrc" a seguir buenas practicas recomendas
 
-# e2e tests
-$ npm run test:e2e
+### Aplicación
+- Modulos : Los módulos encapsulan todo el funciónamiento de un endpoint (controllers,servicios,interfaces,entity,dtos).
 
-# test coverage
-$ npm run test:cov
-```
+- Controllers : Los controladores son responsables de manejar las solicitudes entrantes y devolver. las respuestas al cliente.
 
-## Support
+- Decoradores Params (@Param, @Body).
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+- Decoradores para  HTTP estándar (@Get,@Post,@Patch,@Delete).
 
-## Stay in touch
+- Services : Aqui es donde haremos la parte de lógica de nuestro negocio.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Inyección de Dependencias : En este caso usamos para compartir Servicios externos .
 
-## License
+- Exportación e Importación de Módulos: Nos sirve para compartir información entre modulos. ejemplo (Un servicio).
+- Excepciones : NotFoundException, BadRequestException.
 
-Nest is [MIT licensed](LICENSE).
+- Dto : Data Transfer Objecto, basicamente es una clase que o modelo que nos va a ayudar a transladar información de un lugar a otro en toda nuestra aplicación.
+
+- class-valitor : Librería que me sirve para restringir mis modelos.
+
+- class-transforme : Librería que me sirve para restringir mis modelos.
+
+- Pipes : Transforman data de entrada y tambien nos sirve para validar ejemplo (ParseUUIDPipe ValidationPipe).
+
+- useGlobalPipes: Es un pipe de alcance global que nos sirve sobre todo para validar que nuestros. request vengan tal cual nuestra modelos.
+
+- Seed : Es un servicio que nos ayuda a generar data de prueba para compartirla en nuestros distintos modulos a travez de la inyección de dependencias. 
+
+
