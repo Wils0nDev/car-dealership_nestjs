@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { Car } from './interfaces/car.interface';
 import { v4 as uuid } from 'uuid';
 import { CreateCarDto } from './dto/car.dto';
@@ -17,7 +17,7 @@ export class CarsService {
       model: 'Civic',
     },
     {
-      id: '51296bd2-b859-4db8-820d-48b079e9a2dd',
+      id: uuid(),
       brand: 'Jeep',
       model: 'Cheroke',
     },
@@ -40,12 +40,13 @@ export class CarsService {
     const intialLength = this.cars.length;
     this.cars.push(newCar);
     const afterLength = this.cars.length;
-    if (afterLength > intialLength) return this.cars;
+    if (afterLength > intialLength) return newCar;
     throw new NotFoundException(`No se pudo guardar el objeto`);
   }
 
   update(id: string, updateCarDto: UpdateCarDto) {
     let carDB = this.findById(id);
+    if(updateCarDto.id && updateCarDto.id !== id ) throw new BadRequestException(`Car id is not valid inside body`)
     this.cars = this.cars.map(car => {
       if (car.id === id) {
         carDB = {...carDB, ...updateCarDto, id}
