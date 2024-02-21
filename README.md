@@ -80,3 +80,6 @@ $ npm run start:prod
 - Seed : Es un servicio que nos ayuda a generar data de prueba para compartirla en nuestros distintos modulos a travez de la inyección de dependencias. 
 
 
+
+## Comando para construir Dto,service,controller, modulo de manera rápida.
+``` nest g res nombre_modulo --no-spec ```
